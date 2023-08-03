@@ -21,9 +21,12 @@ public class FruitTotalPriceController {
     		@PathVariable String month,
     		@PathVariable int quantity) {    	
     	
+    	String capitalizedFruit = fruit.substring(0, 1).toUpperCase() + fruit.substring(1);
+    	String capitalizedMonth = month.substring(0, 1).toUpperCase() + month.substring(1,3);
+    	
     	HashMap<String, String> uriVariables = new HashMap<>();
-    	uriVariables.put("fruit", fruit);
-    	uriVariables.put("month", month);
+    	uriVariables.put("fruit", capitalizedFruit);
+    	uriVariables.put("month", capitalizedMonth);
     	
         String remoteUrl = "http://localhost:8000/fruit-month-price/fruit/{fruit}/month/{month}";
     	ResponseEntity<FruitTotalPrice> responseEntity = 
@@ -34,7 +37,7 @@ public class FruitTotalPriceController {
     	fruitTotalPriceData.setQuantity(quantity);
     	fruitTotalPriceData.setTotalPrice(quantity * fruitTotalPriceData.getFmp());
     	return new FruitTotalPrice(fruitTotalPriceData.getId(), 
-    			fruit, month, 
+    			capitalizedFruit, capitalizedMonth, 
     			fruitTotalPriceData.getFmp(),
     			quantity,
     			quantity * fruitTotalPriceData.getFmp(),

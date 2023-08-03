@@ -27,7 +27,11 @@ public class FruitMonthPriceController {
     		@PathVariable String fruit, 
     		@PathVariable String month) {    	
     	
-    	FruitMonthPrice priceEntity = repository.findByFruitIgnoreCaseAndMonthIgnoreCase(fruit, month);
+    	String capitalizedFruit = fruit.substring(0, 1).toUpperCase() + fruit.substring(1);
+    	String capitalizedMonth = month.substring(0, 1).toUpperCase() + month.substring(1,3);
+
+
+    	FruitMonthPrice priceEntity = repository.findByFruitIgnoreCaseAndMonthIgnoreCase(capitalizedFruit, capitalizedMonth);
     	if(priceEntity == null) {
     		throw new RuntimeException("Unable to find data for " + fruit + " in " + month);
     	}
