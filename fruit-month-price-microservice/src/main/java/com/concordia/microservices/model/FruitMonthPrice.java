@@ -9,14 +9,14 @@ public class FruitMonthPrice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "`name`", nullable = false)
-    private String name;
+    @Column(name = "`fruit`", nullable = false)
+    private String fruit;
 
     @Column(name = "`month`", nullable = false)
     private String month;
 
-    @Column(name = "`price`", nullable = false)
-    private float price;
+    @Column(name = "`fmp`", nullable = false)
+    private float fmp;
 
     @Column(name = "`environment`")
     private String environment;
@@ -25,10 +25,10 @@ public class FruitMonthPrice {
 
     }
 
-    public FruitMonthPrice(String name, String month, float price) {
-        this.name = name;
+    public FruitMonthPrice(String fruit, String month, float fmp) {
+        this.fruit = fruit;
         this.month = month;
-        this.price = price;
+        this.fmp = fmp;
     }
 
     public Long getId() {
@@ -39,12 +39,12 @@ public class FruitMonthPrice {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFruit() {
+        return fruit;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFruit(String fruit) {
+        this.fruit = fruit;
     }
 
     public String getMonth() {
@@ -55,12 +55,12 @@ public class FruitMonthPrice {
         this.month = month;
     }
 
-    public float getPrice() {
-        return price;
+    public float getFmp() {
+        return fmp;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setFmp(float fmp) {
+        this.fmp = fmp;
     }
 
     public String getEnvironment() {

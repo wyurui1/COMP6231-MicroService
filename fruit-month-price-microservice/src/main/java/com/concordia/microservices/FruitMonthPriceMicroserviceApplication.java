@@ -8,7 +8,7 @@ public class FruitMonthPriceMicroserviceApplication {
 
 	public static void main(String[] args) {
 		System.setProperty("spring.config.import", "optional:configserver:http://localhost:8888");
-        try {
+		try {
             SpringApplication.run(FruitMonthPriceMicroserviceApplication.class, args);
         } catch (Exception e) {
         	if (e.getMessage() != null) {

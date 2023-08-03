@@ -22,7 +22,7 @@ public class InsertExcelFile {
             Row headerRow = sheet.getRow(0);
             int numColumns = headerRow.getLastCellNum();
 
-            StringBuilder insertSQLBuilder = new StringBuilder("INSERT INTO \"fruit_month_price\" (\"name\", \"month\", \"price\")");
+            StringBuilder insertSQLBuilder = new StringBuilder("INSERT INTO \"fruit_month_price\" (\"fruit\", \"month\", \"fmp\")");
             insertSQLBuilder.append(" VALUES (?,?,?)");
 
             String insertSQL = insertSQLBuilder.toString();
@@ -33,10 +33,13 @@ public class InsertExcelFile {
                 String fruitName = dataFormatter.formatCellValue(row.getCell(0));
                 for (int colIndex = 1; colIndex < numColumns; colIndex++) {
                     double fruitPrice = row.getCell(colIndex).getNumericCellValue();
+                    String formattedPrice = String.format("%.2f", fruitPrice);
+                    double roundedPrice = Double.parseDouble(formattedPrice);
+                 
                     String month = dataFormatter.formatCellValue(headerRow.getCell(colIndex));
                     preparedStatement.setString(1, fruitName);
                     preparedStatement.setString(2, month);
-                    preparedStatement.setDouble(3, fruitPrice);
+                    preparedStatement.setDouble(3, roundedPrice);
                     preparedStatement.executeUpdate();
                 }
             }

@@ -3,24 +3,25 @@ package com.concordia.microservices.model;
 public class FruitTotalPrice {
 
     private Long id;
-    private String name;
+    private String fruit;
     private String month;
-
-    private float price;
-    private String environment;
+    private float fmp;
     private int quantity;
     private float totalPrice;
+    private String environment;
 
     public FruitTotalPrice() {
 
     }
 
-    public FruitTotalPrice(Long id, String name, String month, float price, int quantity) {
+    public FruitTotalPrice(Long id, String fruit, String month, float fmp, int quantity, float totalPrice, String environment) {
         this.id = id;
-    	this.name = name;
+    	this.fruit = fruit;
         this.month = month;
-        this.price = price;
+        this.fmp = fmp;
         this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.environment = environment;
     }
 
     public Long getId() {
@@ -31,12 +32,12 @@ public class FruitTotalPrice {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFruit() {
+        return fruit;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFruit(String fruit) {
+        this.fruit = fruit;
     }
 
     public String getMonth() {
@@ -47,12 +48,12 @@ public class FruitTotalPrice {
         this.month = month;
     }
 
-    public float getPrice() {
-        return price;
+    public float getFmp() {
+        return fmp;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setFmp(float fmp) {
+        this.fmp = fmp;
     }
 
     public String getEnvironment() {
