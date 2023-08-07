@@ -30,7 +30,7 @@ public class InsertExcelFile {
 
             for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
                 Row row = sheet.getRow(rowIndex);
-                String fruitName = dataFormatter.formatCellValue(row.getCell(0));
+                String fruitName = dataFormatter.formatCellValue(row.getCell(0)).toLowerCase();
                 for (int colIndex = 1; colIndex < numColumns; colIndex++) {
                     double fruitPrice = row.getCell(colIndex).getNumericCellValue();
                     String formattedPrice = String.format("%.2f", fruitPrice);
