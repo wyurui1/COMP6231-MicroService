@@ -1,1 +1,3 @@
-# comp6231-a3
+# COMP6231-Assignment3
+
+Spring Boot Application
